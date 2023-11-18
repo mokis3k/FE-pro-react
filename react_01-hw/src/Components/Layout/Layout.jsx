@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Table from "./../Table/Table";
 
-function Layout(props) {
+function Layout() {
   const animals = [
     { type: `turtle`, icon: `🐢` },
     { type: `octopus`, icon: `🐙` },
@@ -9,9 +9,10 @@ function Layout(props) {
     { type: `flamingo`, icon: `🦩` },
     { type: `penguin`, icon: `🐧` },
   ];
+
   return (
     <Fragment>
-      <Table list={animals} color={"green"} fontWeight={700}/>
+      <Table list={animals} />
     </Fragment>
   );
 }

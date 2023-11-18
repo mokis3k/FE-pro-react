@@ -9,25 +9,25 @@ class Table extends Component {
   constructor(props) {
     super(props);
 
-    if (this.state.list) {
+    if (this.state.list.length) {
       let { list, listCut } = this.state;
-      const chooseRandomItem = setInterval(() => {
+      const randomActiveInterval = setInterval(() => {
         const randomIdex = Math.floor(Math.random() * listCut.length);
         const randomItem = listCut[randomIdex];
-        const setActiveList = list.map((item) => ({
+        const listActive = list.map((item) => ({
           ...item,
           active: item.type === randomItem.type,
         }));
-        list = listCut.filter((elem) => elem.type !== randomItem.type);
+        listCut = listCut.filter((item) => item.type !== randomItem.type);
 
         this.setState(
           {
-            list: setActiveList,
-            listCut: list,
+            list: listActive,
+            listCut,
           },
           () => {
             if (listCut.length === 0) {
-              clearInterval(chooseRandomItem);
+              clearInterval(randomActiveInterval);
             }
           }
         );
@@ -44,12 +44,10 @@ class Table extends Component {
           {list.map((obj, index) => (
             <tr
               key={index}
-              style={
-                obj.active ? { color: "green", fontWeight: "700" } : null
-              }
+              style={obj.active ? { color: "green", fontWeight: "700" } : null}
             >
               {Object.values(obj).map((value, i) => (
-                <td key={`${index}.${i}`}>{value}</td>
+                <td key={`0.${i}`}>{value}</td>
               ))}
             </tr>
           ))}
