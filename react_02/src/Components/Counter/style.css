@@ -1,0 +1,15 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.counter span {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.counter input {
+    margin-left: 10px
+}
