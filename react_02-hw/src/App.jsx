@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layout from "./Components/Layout/Layout";
+import ToDo from "./Components/ToDo/ToDo.jsx";
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
       },
     ];
 
-    return <Layout list={list}/>;
+    return <ToDo list={list}/>;
   }
 }
 
